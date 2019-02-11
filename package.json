@@ -1,25 +1,27 @@
 {
   "name": "ngx-favicon-demo",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "scripts": {
     "-----COMMON-----": "-------------------------------------",
     "ng": "ng",
     "prettier": "prettier",
     "prettier:base": "prettier \"**/*.{js,json,css,md,ts,html,component.html}\"",
+    "prettier:check": "yarn run prettier:base -l",
     "prettier:write": "yarn run prettier:base --write",
     "start": "yarn run demo:start",
     "test": "yarn run demo:test",
     "------DEMO------": "-------------------------------------",
     "demo:start": "yarn run ng serve",
     "demo:test": "yarn run ng test",
-    "demo:lint:base": "yarn run ng lint",
+    "demo:lint:check": "yarn run ng lint",
     "demo:lint:fix": "yarn run demo:lint:base --fix",
     "demo:build:base": "yarn run ng build",
     "demo:build:prod": "yarn run ng build --prod",
     "-------LIB------": "-------------------------------------",
     "lib:build:base": "yarn run ng build --project=ngx-favicon",
     "lib:build:watch": "yarn run lib:build:base --watch",
-    "lib:build:prod": "yarn run lib:build:base"
+    "lib:build:prod": "yarn run lib:build:base",
+    "semantic-release": "semantic-release"
   },
   "private": true,
   "dependencies": {
@@ -56,11 +58,16 @@
     "ng-packagr": "4.7.0",
     "prettier": "1.16.4",
     "protractor": "5.4.2",
+    "semantic-release": "15.13.3",
     "ts-node": "8.0.2",
     "tsickle": "0.34.3",
     "tslib": "1.9.0",
     "tslint": "5.12.1",
     "tslint-config-prettier": "1.18.0",
     "typescript": "3.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudnc/ngx-favicon.git"
   }
 }
