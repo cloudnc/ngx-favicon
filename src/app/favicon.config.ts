@@ -13,6 +13,9 @@ export type AvailableCustomFavicons = { [key in CustomFavicon]: string };
 // -------------------------------------------------------------
 // map all the types of favicon to their href
 export const customFavicons: AvailableCustomFavicons = {
-  [CustomFavicon.FAVICON_SUCCESS]: 'favicon-success.ico',
-  [CustomFavicon.FAVICON_ERROR]: 'favicon-error.ico',
+  // for some reason, impossible to use the syntax
+  // [CustomFavicon.FAVICON_SUCCESS]: 'favicon-success.ico',
+  // otherwise we end up with an AOT ERROR
+  faviconSuccess: 'favicon-success.ico',
+  faviconError: 'favicon-error.ico',
 };
