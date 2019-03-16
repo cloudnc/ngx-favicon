@@ -21,6 +21,20 @@ export class NgxFaviconService<CustomFavicon extends string> {
     private ngxFaviconConfig: NgxFaviconConfig<Dictionary<string>>,
   ) {}
 
+  public setFaviconByUrl(faviconUrl: string): void {
+    if (!this.document) {
+      return;
+    }
+
+    const linkElement: HTMLLinkElement = document.getElementById(
+      this.ngxFaviconConfig.faviconElementId,
+    ) as HTMLLinkElement;
+
+    linkElement.type = 'image/x-icon';
+    linkElement.rel = 'icon';
+    linkElement.href = faviconUrl;
+  }
+
   public setCustomFavicon(faviconName: CustomFavicon): void {
     if (!faviconName || !this.ngxFaviconConfig.custom[faviconName]) {
       throw new NgxFaviconUnknownFaviconError(faviconName);
@@ -34,18 +48,9 @@ export class NgxFaviconService<CustomFavicon extends string> {
   }
 
   private updateFavicon(faviconName?: CustomFavicon): void {
-    if (!this.document) {
-      return;
-    }
-
-    const linkElement: HTMLLinkElement = document.getElementById(
-      this.ngxFaviconConfig.faviconElementId,
-    ) as HTMLLinkElement;
-
-    linkElement.type = 'image/x-icon';
-    linkElement.rel = 'icon';
-    linkElement.href =
+    this.setFaviconByUrl(
       this.ngxFaviconConfig.custom[faviconName] ||
-      this.ngxFaviconConfig.defaultUrl;
+        this.ngxFaviconConfig.defaultUrl,
+    );
   }
 }

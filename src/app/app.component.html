@@ -1,10 +1,25 @@
-<button (click)="setDefaultFavicon()" data-btn-default>Set default</button>
-<button
-  (click)="setCustomFavicon(CustomFavicon.FAVICON_SUCCESS)"
-  data-btn-success
->
-  Set success
-</button>
-<button (click)="setCustomFavicon(CustomFavicon.FAVICON_ERROR)" data-btn-error>
-  Set error
-</button>
+<fieldset>
+  <legend>By Enum</legend>
+  <button (click)="setDefaultFavicon()" data-btn-default>Set default</button>
+  <button
+    (click)="setCustomFavicon(CustomFavicon.FAVICON_SUCCESS)"
+    data-btn-success
+  >
+    Set success
+  </button>
+  <button
+    (click)="setCustomFavicon(CustomFavicon.FAVICON_ERROR)"
+    data-btn-error
+  >
+    Set error
+  </button>
+</fieldset>
+
+<fieldset>
+  <legend>By Url</legend>
+  <input type="text" [value]="customUrlExample" #iconUrl />
+
+  <button (click)="setUrlFavicon(iconUrl.value)" data-btn-url>
+    Set by url
+  </button>
+</fieldset>

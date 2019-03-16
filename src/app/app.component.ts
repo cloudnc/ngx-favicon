@@ -9,6 +9,7 @@ import { CustomFavicon } from './favicon.config';
 })
 export class AppComponent {
   public CustomFavicon: typeof CustomFavicon = CustomFavicon;
+  public customUrlExample = `https://en.wikipedia.org/static/favicon/wikipedia.ico`;
 
   constructor(private ngxFaviconService: NgxFaviconService<CustomFavicon>) {}
 
@@ -18,5 +19,9 @@ export class AppComponent {
 
   public setCustomFavicon(faviconName: CustomFavicon): void {
     this.ngxFaviconService.setCustomFavicon(faviconName);
+  }
+
+  public setUrlFavicon(url: string) {
+    this.ngxFaviconService.setFaviconByUrl(url);
   }
 }

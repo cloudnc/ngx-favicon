@@ -1,6 +1,11 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { DebugElement, Component } from '@angular/core';
+import {
+  DebugElement,
+  Component,
+  ContentChild,
+  ViewChild,
+} from '@angular/core';
 import {
   NgxFaviconModule,
   NgxFaviconConfig,
@@ -22,7 +27,10 @@ import { click, queryByCss } from './helpers/testing.helpers';
     <app-root></app-root>
   `,
 })
-class HostComponent {}
+class HostComponent {
+  @ViewChild(AppComponent)
+  public appComponent: AppComponent;
+}
 
 describe('AppComponent', () => {
   let component: HostComponent;
@@ -40,6 +48,9 @@ describe('AppComponent', () => {
       },
       get success(): DebugElement {
         return queryByCss(debug, '[data-btn-success]');
+      },
+      get url(): DebugElement {
+        return queryByCss(debug, '[data-btn-url]');
       },
       get error(): DebugElement {
         return queryByCss(debug, '[data-btn-error]');
@@ -110,6 +121,15 @@ describe('AppComponent', () => {
 
     expect(getFaviconHrefFromDom(DOM)).toMatch(
       getExpectedRegex(ngxFaviconConfig.defaultUrl),
+    );
+  });
+
+  it('should change the favicon by url', () => {
+    click(DOM.buttons.url);
+    fixture.detectChanges();
+
+    expect(getFaviconHrefFromDom(DOM)).toBe(
+      component.appComponent.customUrlExample,
     );
   });
 });
