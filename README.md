@@ -108,7 +108,7 @@ export class AppModule {}
 
 ## How to use it
 
-Once everything is setup, you can inject the `NgxFaviconService` and use either the `setDefaultFavicon` or `setCustomFavicon` methods.
+Once everything is setup, you can inject the `NgxFaviconService` and use either the `setDefaultFavicon`, `setCustomFavicon` or `setFaviconByUrl` methods.
 
 Example from a component:
 
@@ -132,6 +132,10 @@ export class AppComponent {
 +  public setCustomFavicon(faviconName: CustomFavicon): void {
 +    this.ngxFaviconService.setCustomFavicon(faviconName);
 +  }
+
++  public setFaviconByUrl(faviconUrl: string): void {
++    this.ngxFaviconService.setFaviconByUrl(faviconUrl);
++  }
 }
 ```
 
@@ -144,6 +148,9 @@ export class AppComponent {
 + </button>
 + <button (click)="setCustomFavicon(CustomFavicon.FAVICON_ERROR)" data-btn-error>
 +   Set error
++ </button>
++ <button (click)="setFaviconByUrl('https://en.wikipedia.org/static/favicon/wikipedia.ico')" data-btn-url>
++   Set by URL
 + </button>
 ```
 
