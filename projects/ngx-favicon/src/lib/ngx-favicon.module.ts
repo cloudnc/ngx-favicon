@@ -15,7 +15,7 @@ class NgxFaviconConfigurationRequiredError extends Error {
 export class NgxFaviconModule {
   static forRoot<CustomFaviconConfig extends Dictionary<string>>(
     conf: NgxFaviconConfig<CustomFaviconConfig>,
-  ): ModuleWithProviders {
+  ): ModuleWithProviders<NgxFaviconModule> {
     // the following check can't (unfortunately) be there, otherwise
     // AOT compilation (for the app!) will fail
     // https://github.com/angular/angular-cli/issues/9358#issuecomment-361865955
