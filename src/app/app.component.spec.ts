@@ -64,14 +64,16 @@ describe('AppComponent', () => {
     custom: customFavicons,
   };
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        NgxFaviconModule.forRoot<AvailableCustomFavicons>(ngxFaviconConfig),
-      ],
-      declarations: [HostComponent, AppComponent],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          NgxFaviconModule.forRoot<AvailableCustomFavicons>(ngxFaviconConfig),
+        ],
+        declarations: [HostComponent, AppComponent],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HostComponent);
