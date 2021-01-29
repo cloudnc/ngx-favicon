@@ -1,4 +1,4 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {
   DebugElement,
@@ -64,14 +64,16 @@ describe('AppComponent', () => {
     custom: customFavicons,
   };
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        NgxFaviconModule.forRoot<AvailableCustomFavicons>(ngxFaviconConfig),
-      ],
-      declarations: [HostComponent, AppComponent],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          NgxFaviconModule.forRoot<AvailableCustomFavicons>(ngxFaviconConfig),
+        ],
+        declarations: [HostComponent, AppComponent],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HostComponent);
