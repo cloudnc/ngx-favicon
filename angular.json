@@ -132,6 +132,11 @@
           "options": {
             "tsConfig": "projects/ngx-favicon/tsconfig.lib.json",
             "project": "projects/ngx-favicon/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-favicon/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
