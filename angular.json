@@ -140,9 +140,21 @@
             "tsConfig": "projects/ngx-favicon/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-favicon/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-favicon/**/*.ts",
+              "projects/ngx-favicon/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "ngx-favicon-demo"
+  "defaultProject": "ngx-favicon-demo",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
