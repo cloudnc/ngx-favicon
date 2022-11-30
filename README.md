@@ -165,6 +165,7 @@ If you're willing to contribute to that project, feel free to do so.
 - Create a branch ex: `git checkout -b /feat/my-feature` or `git checkout -b /fix/my-fix`
 - Make some changes
 - Run `yarn run prettier:write` to make sure formatting is fine
+- Run `yarn run lib:build:prod` to build the library
 - Run `yarn run demo:test` to make sure all the tests are passing
 - Commit your changes using the [Angular commit message conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines)
 - Open a pull request
